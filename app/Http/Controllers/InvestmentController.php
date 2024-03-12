@@ -20,7 +20,7 @@ class InvestmentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cryptocurrency_id' => 'required|exists:cryptocurrencies,id', // Corrected
+            'cryptocurrency_id' => 'required|exists:cryptocurrencies,id', 
             'invested_amount' => 'required|numeric|max:1000000',
         ]);
 

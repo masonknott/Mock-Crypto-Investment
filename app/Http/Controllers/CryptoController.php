@@ -24,9 +24,6 @@ class CryptoController extends Controller
     );
 }
 
-
-
-
     public function fetchLiveCryptocurrencyData()
     {
         $apiKey = env('COINMARKETCAP_API_KEY');

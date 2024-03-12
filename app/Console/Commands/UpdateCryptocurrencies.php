@@ -9,11 +9,8 @@ use Illuminate\Support\Facades\Http;
 class UpdateCryptocurrencies extends Command
 {
     protected $signature = 'update:cryptocurrencies';
-
-
     protected $description = 'Command description';
-
-  
+    
     public function handle()
     {
         $apikey = env('COINMARKETCAP_API_KEY');
