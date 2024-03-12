@@ -2,7 +2,7 @@ Laravel Breeze used for authentication, secure login experience. Migrations faci
 
 Using the CoinMarketCap API, live data is retrieved and updated in the database via custom Laravel scheduler command, ensuring users have real-time crypto information.
 
-Users can invest virtual funds in the top 10 cryptocurrencies, observing market fluctuations over time. Portfolio performance is visualized with a very basic table
+Users can invest virtual funds in the top 10 cryptocurrencies, observing market fluctuations over time. Portfolio performance is visualized with a  table
 
 Added some styling from tailwind template and made it my own for my apps purpose
 
