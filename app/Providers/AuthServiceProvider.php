@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\ServiceProvider; // Add this line
 
 class AuthServiceProvider extends ServiceProvider
 {

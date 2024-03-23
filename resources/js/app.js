@@ -1,7 +1,7 @@
 import './bootstrap';
+import { createApp } from 'vue';
+import InvestmentTable from './components/InvestmentTable.vue'
 
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
+const app = createApp({});
+app.component('investment-table', InvestmentTable);
+app.mount('#app');

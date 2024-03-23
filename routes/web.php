@@ -23,9 +23,6 @@ use App\Http\Controllers\ProfileController;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/cryptos', [CryptoController::class,'index']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -42,5 +39,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/investments', [InvestmentController::class, 'index'])->name('investments.index');
     Route::post('/investments', [InvestmentController::class, 'store']);
 });
+Route::get('/vuetest', function () {
+    return view('vuetest');
+});
+
 
 require __DIR__.'/auth.php';

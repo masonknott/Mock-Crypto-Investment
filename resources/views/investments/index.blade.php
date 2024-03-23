@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+@extends('layouts.app')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Crypto Investor</title>
@@ -117,75 +118,17 @@
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
                 <h1 class="text-3xl text-black pb-6">Tables</h1>
-                @php
-            $totalPortfolioValue = 0;
-            foreach ($investments as $investment) {
-                $totalPortfolioValue += $investment->cryptocurrency->price * $investment->crypto_amount;
-                    }
-              @endphp
-         <div class="w-full mt-6">
-                    <div class="bg-white p-4 shadow rounded-lg">
-                        <h3 class="text-lg font-semibold">Total Portfolio Value</h3>
-                        <p class="text-xl">${{ number_format($totalPortfolioValue, 2) }}</p>
-                    </div>
-                </div>
-
-
-                <div class="w-full mt-6">
-                    <p class="text-xl pb-3 flex items-center">
-                        <i class="fas fa-list mr-3"></i> Investment Table
-                    </p>
-                    <div class="bg-white overflow-auto">
-                        <table class="min-w-full bg-white">
-                            <thead class="bg-gray-800 text-white">
-
-                            <tr>
-                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Cryptocurrency</th>
-                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Amount Invested</th>
-                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Price at Investment</th>
-                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Current Price</th>
-                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Profit/Loss</th>
-                    </tr>
-                            </thead>
-                            <tbody class="text-gray-700">
-                            <tbody>
-                    @foreach ($investments as $investment)
-                    <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            {{ $investment->cryptocurrency->name }} ({{ $investment->cryptocurrency->symbol }})
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            ${{ number_format($investment->invested_amount, 2) }}
-                        </td>
-                        
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            ${{ number_format($investment->price_at_investment, 2) }}
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            ${{ number_format($investment->cryptocurrency->price, 2) }}
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            @php
-                                $profitLoss = ($investment->cryptocurrency->price - $investment->price_at_investment) * $investment->crypto_amount;
-                            @endphp
-                            <span class="{{ $profitLoss > 0 ? 'text-green-600' : 'text-red-600' }}">
-                                ${{ number_format($profitLoss, 2) }}
-                            </span>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                       </table>
-                </div>
+            </div>
+                <div id ='app'>
+            <investment-table></investment-table>
+        </div>
             </div>                 
             </div>
-            <footer class="w-full bg-white text-right p-4">
-            Built by <a href="https://github.com/masonknott" target="_blank" class="underline">Mason Knott</a>.
-        </footer>
-
+       
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </body>
+
 </html>

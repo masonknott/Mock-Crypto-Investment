@@ -35,7 +35,6 @@ class CryptoController extends Controller
             'limit' => '10',
             'convert' => 'USD',
         ]);
-
         if ($response->successful()) {
             $cryptos = $response->json()['data'];
         } else {
